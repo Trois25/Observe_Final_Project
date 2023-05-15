@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class BaseNetwork {
-  static final String baseUrl = "https://api.jikan.moe/v4/recommendations"; //url dari API
+  static final String baseUrl = "https://api.jikan.moe/v4"; //url dari API
 
   static Future<Map<String, dynamic>> get(String partUrl) async { //variable map dengan tipe string dan berisi data dinamis
     final String fullUrl = baseUrl + "/" + partUrl;

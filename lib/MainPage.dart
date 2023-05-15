@@ -47,7 +47,7 @@ class _AnimeMainPageState extends State<AnimeMainPage> {
             borderRadius: BorderRadius.circular(20), color: Colors.green),
           child: Center(
             child: Container(
-              child: Text(dataResponse['entry'].toString()),
+              child: Text(dataResponse['entry''title'].toString()),
             ),
           ),
           ),

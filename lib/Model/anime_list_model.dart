@@ -18,56 +18,157 @@ class AnimeList {
 }
 
 class Data {
-  final String? malId;
-  final List<Entry>? entry;
-  final String? content;
-  final User? user;
-
-  Data({
-    this.malId,
-    this.entry,
-    this.content,
-    this.user,
-  });
-
-  Data.fromJson(Map<String, dynamic> json)
-      : malId = json['mal_id'] as String?,
-        entry = (json['entry'] as List?)?.map((dynamic e) => Entry.fromJson(e as Map<String,dynamic>)).toList(),
-        content = json['content'] as String?,
-        user = (json['user'] as Map<String,dynamic>?) != null ? User.fromJson(json['user'] as Map<String,dynamic>) : null;
-
-  Map<String, dynamic> toJson() => {
-    'mal_id' : malId,
-    'entry' : entry?.map((e) => e.toJson()).toList(),
-    'content' : content,
-    'user' : user?.toJson()
-  };
-}
-
-class Entry {
   final int? malId;
   final String? url;
   final Images? images;
+  final Trailer? trailer;
+  final bool? approved;
+  final List<Titles>? titles;
   final String? title;
+  final String? titleEnglish;
+  final String? titleJapanese;
+  final List<String>? titleSynonyms;
+  final String? type;
+  final String? source;
+  final int? episodes;
+  final String? status;
+  final bool? airing;
+  final Aired? aired;
+  final String? duration;
+  final String? rating;
+  final int? score;
+  final int? scoredBy;
+  final int? rank;
+  final int? popularity;
+  final int? members;
+  final int? favorites;
+  final String? synopsis;
+  final String? background;
+  final String? season;
+  final int? year;
+  final Broadcast? broadcast;
+  final List<Producers>? producers;
+  final List<Licensors>? licensors;
+  final List<Studios>? studios;
+  final List<Genres>? genres;
+  final List<ExplicitGenres>? explicitGenres;
+  final List<Themes>? themes;
+  final List<Demographics>? demographics;
 
-  Entry({
+  Data({
     this.malId,
     this.url,
     this.images,
+    this.trailer,
+    this.approved,
+    this.titles,
     this.title,
+    this.titleEnglish,
+    this.titleJapanese,
+    this.titleSynonyms,
+    this.type,
+    this.source,
+    this.episodes,
+    this.status,
+    this.airing,
+    this.aired,
+    this.duration,
+    this.rating,
+    this.score,
+    this.scoredBy,
+    this.rank,
+    this.popularity,
+    this.members,
+    this.favorites,
+    this.synopsis,
+    this.background,
+    this.season,
+    this.year,
+    this.broadcast,
+    this.producers,
+    this.licensors,
+    this.studios,
+    this.genres,
+    this.explicitGenres,
+    this.themes,
+    this.demographics,
   });
 
-  Entry.fromJson(Map<String, dynamic> json)
+  Data.fromJson(Map<String, dynamic> json)
       : malId = json['mal_id'] as int?,
         url = json['url'] as String?,
         images = (json['images'] as Map<String,dynamic>?) != null ? Images.fromJson(json['images'] as Map<String,dynamic>) : null,
-        title = json['title'] as String?;
+        trailer = (json['trailer'] as Map<String,dynamic>?) != null ? Trailer.fromJson(json['trailer'] as Map<String,dynamic>) : null,
+        approved = json['approved'] as bool?,
+        titles = (json['titles'] as List?)?.map((dynamic e) => Titles.fromJson(e as Map<String,dynamic>)).toList(),
+        title = json['title'] as String?,
+        titleEnglish = json['title_english'] as String?,
+        titleJapanese = json['title_japanese'] as String?,
+        titleSynonyms = (json['title_synonyms'] as List?)?.map((dynamic e) => e as String).toList(),
+        type = json['type'] as String?,
+        source = json['source'] as String?,
+        episodes = json['episodes'] as int?,
+        status = json['status'] as String?,
+        airing = json['airing'] as bool?,
+        aired = (json['aired'] as Map<String,dynamic>?) != null ? Aired.fromJson(json['aired'] as Map<String,dynamic>) : null,
+        duration = json['duration'] as String?,
+        rating = json['rating'] as String?,
+        score = json['score'] as int?,
+        scoredBy = json['scored_by'] as int?,
+        rank = json['rank'] as int?,
+        popularity = json['popularity'] as int?,
+        members = json['members'] as int?,
+        favorites = json['favorites'] as int?,
+        synopsis = json['synopsis'] as String?,
+        background = json['background'] as String?,
+        season = json['season'] as String?,
+        year = json['year'] as int?,
+        broadcast = (json['broadcast'] as Map<String,dynamic>?) != null ? Broadcast.fromJson(json['broadcast'] as Map<String,dynamic>) : null,
+        producers = (json['producers'] as List?)?.map((dynamic e) => Producers.fromJson(e as Map<String,dynamic>)).toList(),
+        licensors = (json['licensors'] as List?)?.map((dynamic e) => Licensors.fromJson(e as Map<String,dynamic>)).toList(),
+        studios = (json['studios'] as List?)?.map((dynamic e) => Studios.fromJson(e as Map<String,dynamic>)).toList(),
+        genres = (json['genres'] as List?)?.map((dynamic e) => Genres.fromJson(e as Map<String,dynamic>)).toList(),
+        explicitGenres = (json['explicit_genres'] as List?)?.map((dynamic e) => ExplicitGenres.fromJson(e as Map<String,dynamic>)).toList(),
+        themes = (json['themes'] as List?)?.map((dynamic e) => Themes.fromJson(e as Map<String,dynamic>)).toList(),
+        demographics = (json['demographics'] as List?)?.map((dynamic e) => Demographics.fromJson(e as Map<String,dynamic>)).toList();
 
   Map<String, dynamic> toJson() => {
     'mal_id' : malId,
     'url' : url,
     'images' : images?.toJson(),
-    'title' : title
+    'trailer' : trailer?.toJson(),
+    'approved' : approved,
+    'titles' : titles?.map((e) => e.toJson()).toList(),
+    'title' : title,
+    'title_english' : titleEnglish,
+    'title_japanese' : titleJapanese,
+    'title_synonyms' : titleSynonyms,
+    'type' : type,
+    'source' : source,
+    'episodes' : episodes,
+    'status' : status,
+    'airing' : airing,
+    'aired' : aired?.toJson(),
+    'duration' : duration,
+    'rating' : rating,
+    'score' : score,
+    'scored_by' : scoredBy,
+    'rank' : rank,
+    'popularity' : popularity,
+    'members' : members,
+    'favorites' : favorites,
+    'synopsis' : synopsis,
+    'background' : background,
+    'season' : season,
+    'year' : year,
+    'broadcast' : broadcast?.toJson(),
+    'producers' : producers?.map((e) => e.toJson()).toList(),
+    'licensors' : licensors?.map((e) => e.toJson()).toList(),
+    'studios' : studios?.map((e) => e.toJson()).toList(),
+    'genres' : genres?.map((e) => e.toJson()).toList(),
+    'explicit_genres' : explicitGenres?.map((e) => e.toJson()).toList(),
+    'themes' : themes?.map((e) => e.toJson()).toList(),
+    'demographics' : demographics?.map((e) => e.toJson()).toList()
   };
 }
 
@@ -136,40 +237,398 @@ class Webp {
   };
 }
 
-class User {
+class Trailer {
+  final String? youtubeId;
   final String? url;
-  final String? username;
+  final String? embedUrl;
 
-  User({
+  Trailer({
+    this.youtubeId,
     this.url,
-    this.username,
+    this.embedUrl,
   });
 
-  User.fromJson(Map<String, dynamic> json)
-      : url = json['url'] as String?,
-        username = json['username'] as String?;
+  Trailer.fromJson(Map<String, dynamic> json)
+      : youtubeId = json['youtube_id'] as String?,
+        url = json['url'] as String?,
+        embedUrl = json['embed_url'] as String?;
 
   Map<String, dynamic> toJson() => {
+    'youtube_id' : youtubeId,
     'url' : url,
-    'username' : username
+    'embed_url' : embedUrl
+  };
+}
+
+class Titles {
+  final String? type;
+  final String? title;
+
+  Titles({
+    this.type,
+    this.title,
+  });
+
+  Titles.fromJson(Map<String, dynamic> json)
+      : type = json['type'] as String?,
+        title = json['title'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'type' : type,
+    'title' : title
+  };
+}
+
+class Aired {
+  final String? from;
+  final String? to;
+  final Prop? prop;
+
+  Aired({
+    this.from,
+    this.to,
+    this.prop,
+  });
+
+  Aired.fromJson(Map<String, dynamic> json)
+      : from = json['from'] as String?,
+        to = json['to'] as String?,
+        prop = (json['prop'] as Map<String,dynamic>?) != null ? Prop.fromJson(json['prop'] as Map<String,dynamic>) : null;
+
+  Map<String, dynamic> toJson() => {
+    'from' : from,
+    'to' : to,
+    'prop' : prop?.toJson()
+  };
+}
+
+class Prop {
+  final From? from;
+  final To? to;
+  final String? string;
+
+  Prop({
+    this.from,
+    this.to,
+    this.string,
+  });
+
+  Prop.fromJson(Map<String, dynamic> json)
+      : from = (json['from'] as Map<String,dynamic>?) != null ? From.fromJson(json['from'] as Map<String,dynamic>) : null,
+        to = (json['to'] as Map<String,dynamic>?) != null ? To.fromJson(json['to'] as Map<String,dynamic>) : null,
+        string = json['string'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'from' : from?.toJson(),
+    'to' : to?.toJson(),
+    'string' : string
+  };
+}
+
+class From {
+  final int? day;
+  final int? month;
+  final int? year;
+
+  From({
+    this.day,
+    this.month,
+    this.year,
+  });
+
+  From.fromJson(Map<String, dynamic> json)
+      : day = json['day'] as int?,
+        month = json['month'] as int?,
+        year = json['year'] as int?;
+
+  Map<String, dynamic> toJson() => {
+    'day' : day,
+    'month' : month,
+    'year' : year
+  };
+}
+
+class To {
+  final int? day;
+  final int? month;
+  final int? year;
+
+  To({
+    this.day,
+    this.month,
+    this.year,
+  });
+
+  To.fromJson(Map<String, dynamic> json)
+      : day = json['day'] as int?,
+        month = json['month'] as int?,
+        year = json['year'] as int?;
+
+  Map<String, dynamic> toJson() => {
+    'day' : day,
+    'month' : month,
+    'year' : year
+  };
+}
+
+class Broadcast {
+  final String? day;
+  final String? time;
+  final String? timezone;
+  final String? string;
+
+  Broadcast({
+    this.day,
+    this.time,
+    this.timezone,
+    this.string,
+  });
+
+  Broadcast.fromJson(Map<String, dynamic> json)
+      : day = json['day'] as String?,
+        time = json['time'] as String?,
+        timezone = json['timezone'] as String?,
+        string = json['string'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'day' : day,
+    'time' : time,
+    'timezone' : timezone,
+    'string' : string
+  };
+}
+
+class Producers {
+  final int? malId;
+  final String? type;
+  final String? name;
+  final String? url;
+
+  Producers({
+    this.malId,
+    this.type,
+    this.name,
+    this.url,
+  });
+
+  Producers.fromJson(Map<String, dynamic> json)
+      : malId = json['mal_id'] as int?,
+        type = json['type'] as String?,
+        name = json['name'] as String?,
+        url = json['url'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'mal_id' : malId,
+    'type' : type,
+    'name' : name,
+    'url' : url
+  };
+}
+
+class Licensors {
+  final int? malId;
+  final String? type;
+  final String? name;
+  final String? url;
+
+  Licensors({
+    this.malId,
+    this.type,
+    this.name,
+    this.url,
+  });
+
+  Licensors.fromJson(Map<String, dynamic> json)
+      : malId = json['mal_id'] as int?,
+        type = json['type'] as String?,
+        name = json['name'] as String?,
+        url = json['url'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'mal_id' : malId,
+    'type' : type,
+    'name' : name,
+    'url' : url
+  };
+}
+
+class Studios {
+  final int? malId;
+  final String? type;
+  final String? name;
+  final String? url;
+
+  Studios({
+    this.malId,
+    this.type,
+    this.name,
+    this.url,
+  });
+
+  Studios.fromJson(Map<String, dynamic> json)
+      : malId = json['mal_id'] as int?,
+        type = json['type'] as String?,
+        name = json['name'] as String?,
+        url = json['url'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'mal_id' : malId,
+    'type' : type,
+    'name' : name,
+    'url' : url
+  };
+}
+
+class Genres {
+  final int? malId;
+  final String? type;
+  final String? name;
+  final String? url;
+
+  Genres({
+    this.malId,
+    this.type,
+    this.name,
+    this.url,
+  });
+
+  Genres.fromJson(Map<String, dynamic> json)
+      : malId = json['mal_id'] as int?,
+        type = json['type'] as String?,
+        name = json['name'] as String?,
+        url = json['url'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'mal_id' : malId,
+    'type' : type,
+    'name' : name,
+    'url' : url
+  };
+}
+
+class ExplicitGenres {
+  final int? malId;
+  final String? type;
+  final String? name;
+  final String? url;
+
+  ExplicitGenres({
+    this.malId,
+    this.type,
+    this.name,
+    this.url,
+  });
+
+  ExplicitGenres.fromJson(Map<String, dynamic> json)
+      : malId = json['mal_id'] as int?,
+        type = json['type'] as String?,
+        name = json['name'] as String?,
+        url = json['url'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'mal_id' : malId,
+    'type' : type,
+    'name' : name,
+    'url' : url
+  };
+}
+
+class Themes {
+  final int? malId;
+  final String? type;
+  final String? name;
+  final String? url;
+
+  Themes({
+    this.malId,
+    this.type,
+    this.name,
+    this.url,
+  });
+
+  Themes.fromJson(Map<String, dynamic> json)
+      : malId = json['mal_id'] as int?,
+        type = json['type'] as String?,
+        name = json['name'] as String?,
+        url = json['url'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'mal_id' : malId,
+    'type' : type,
+    'name' : name,
+    'url' : url
+  };
+}
+
+class Demographics {
+  final int? malId;
+  final String? type;
+  final String? name;
+  final String? url;
+
+  Demographics({
+    this.malId,
+    this.type,
+    this.name,
+    this.url,
+  });
+
+  Demographics.fromJson(Map<String, dynamic> json)
+      : malId = json['mal_id'] as int?,
+        type = json['type'] as String?,
+        name = json['name'] as String?,
+        url = json['url'] as String?;
+
+  Map<String, dynamic> toJson() => {
+    'mal_id' : malId,
+    'type' : type,
+    'name' : name,
+    'url' : url
   };
 }
 
 class Pagination {
   final int? lastVisiblePage;
   final bool? hasNextPage;
+  final Items? items;
 
   Pagination({
     this.lastVisiblePage,
     this.hasNextPage,
+    this.items,
   });
 
   Pagination.fromJson(Map<String, dynamic> json)
       : lastVisiblePage = json['last_visible_page'] as int?,
-        hasNextPage = json['has_next_page'] as bool?;
+        hasNextPage = json['has_next_page'] as bool?,
+        items = (json['items'] as Map<String,dynamic>?) != null ? Items.fromJson(json['items'] as Map<String,dynamic>) : null;
 
   Map<String, dynamic> toJson() => {
     'last_visible_page' : lastVisiblePage,
-    'has_next_page' : hasNextPage
+    'has_next_page' : hasNextPage,
+    'items' : items?.toJson()
+  };
+}
+
+class Items {
+  final int? count;
+  final int? total;
+  final int? perPage;
+
+  Items({
+    this.count,
+    this.total,
+    this.perPage,
+  });
+
+  Items.fromJson(Map<String, dynamic> json)
+      : count = json['count'] as int?,
+        total = json['total'] as int?,
+        perPage = json['per_page'] as int?;
+
+  Map<String, dynamic> toJson() => {
+    'count' : count,
+    'total' : total,
+    'per_page' : perPage
   };
 }

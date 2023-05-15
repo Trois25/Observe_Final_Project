@@ -62,14 +62,14 @@ class AnimePage extends StatelessWidget {
             children: [
               Container(
                 width: 100,
-                //child: Image.network(AnimeData.),
+                child: Image.network(AnimeData.images!.toString()),
               ),
               SizedBox(width: 20,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(AnimeData.entry![0].toString()),
-                  Text(AnimeData.malId!.toString()),
+                  Text(AnimeData.titles!.toString()),
+                  Text(AnimeData.rating.toString()),
                 ],
               )
             ],
