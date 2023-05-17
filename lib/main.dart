@@ -1,4 +1,4 @@
-import 'package:final_project_tpm/Anime_Main_Page.dart';
+import 'package:final_project_tpm/anime_mainpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
